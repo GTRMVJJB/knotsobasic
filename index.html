@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="72NVTzeHlUmOPs7DaUjEF";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knot So Basic — Crochet Goods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --rose:    #e8a0a0;
+      --blush:   #f2c9c9;
+      --cream:   #fdf5ef;
+      --petal:   #fbe8e0;
+      --mauve:   #c47b7b;
+      --deep:    #7a3f3f;
+      --text:    #3d2020;
+      --soft:    #9e6060;
+      --sage:    #7aaa82;
+      --sage-light: #b8d9bc;
+      --sage-pale:  #e8f3ea;
+      --sage-deep:  #4a7a55;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(253, 245, 239, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(228, 160, 160, 0.25);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--deep);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--soft);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--sage-deep); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 6rem 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 5vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--deep);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--mauve);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--soft);
+      max-width: 380px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background: var(--deep);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      transition: background 0.3s, transform 0.2s;
+      width: fit-content;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    .hero-cta:hover {
+      background: var(--sage);
+      transform: translateY(-2px);
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 3rem;
+    }
+
+    /* Decorative yarn-ball illustration (pure CSS + SVG) */
+    .yarn-scene {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      opacity: 0;
+      animation: fadeIn 1.2s 0.5s forwards;
+    }
+
+    .yarn-ball {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 38% 35%, var(--blush), var(--rose) 55%, var(--mauve));
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 30px 80px rgba(196, 123, 123, 0.35), inset 0 -10px 30px rgba(120,50,50,0.1);
+    }
+
+    .yarn-lines {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .yarn-lines svg {
+      width: 100%; height: 100%;
+    }
+
+    /* Floating petal blobs behind */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.45;
+    }
+    .blob-1 { width: 280px; height: 280px; background: var(--blush); top: 10%; right: 5%; }
+    .blob-2 { width: 200px; height: 200px; background: var(--petal); bottom: 15%; left: 8%; }
+    .blob-3 { width: 180px; height: 180px; background: var(--sage-light); top: 55%; right: 18%; opacity: 0.3; }
+
+    /* Floating stitches */
+    .stitch {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0.18;
+      animation: float 6s ease-in-out infinite;
+      color: var(--mauve);
+    }
+    .stitch:nth-child(1) { top: 18%; left: 52%; animation-delay: 0s; }
+    .stitch:nth-child(2) { top: 72%; left: 68%; animation-delay: 1.5s; }
+    .stitch:nth-child(3) { top: 40%; left: 85%; animation-delay: 3s; }
+    .stitch:nth-child(4) { top: 80%; left: 40%; animation-delay: 2s; }
+
+    /* ── DIVIDER ── */
+    .wave-divider {
+      width: 100%;
+      line-height: 0;
+      margin-top: -2px;
+    }
+    .wave-divider svg { display: block; }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--petal);
+      padding: 7rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: '✦';
+      position: absolute;
+      top: 3rem; right: 4rem;
+      font-size: 5rem;
+      color: var(--blush);
+      opacity: 0.5;
+    }
+
+    .about-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 1.2;
+      color: var(--deep);
+      margin-bottom: 1.8rem;
+    }
+
+    .about-heading em { font-style: italic; color: var(--mauve); }
+
+    .about-body {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--soft);
+    }
+
+    .about-body p + p { margin-top: 1.2rem; }
+
+    .about-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .about-card {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      box-shadow: 0 4px 24px rgba(196,123,123,0.08);
+      border-left: 3px solid transparent;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(122,170,130,0.18);
+      border-left: 3px solid var(--sage);
+    }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .card-icon.green { background: var(--sage-pale); color: var(--sage-deep); }
+    .card-icon.pink  { background: var(--petal);     color: var(--mauve); }
+    .card-icon.rose  { background: var(--blush);     color: var(--deep); }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--deep);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+
+    /* ── VALUES STRIP ── */
+    .values {
+      background: var(--deep);
+      padding: 4rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .value-item {
+      text-align: center;
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .value-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .value-icon.v-green { background: var(--sage); color: #fff; }
+    .value-icon.v-pink  { background: var(--rose); color: var(--deep); }
+    .value-icon.v-cream { background: var(--blush); color: var(--deep); }
+    .value-icon.v-sage  { background: var(--sage-deep); color: #fff; }
+
+    .value-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--blush);
+      margin-bottom: 0.4rem;
+    }
+
+    .value-desc {
+      font-size: 0.82rem;
+      color: rgba(242, 201, 201, 0.6);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream);
+      padding: 3.5rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 2px solid var(--sage-light);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--deep);
+    }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: var(--soft);
+      margin-top: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--rose);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(-14px) rotate(8deg); }
+    }
+
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 8rem 2rem 3rem; }
+      .hero-right { display: none; }
+      .about { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
+      .values { padding: 3rem 2rem; }
+      footer { flex-direction: column; gap: 1.2rem; text-align: center; padding: 2.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Knot So Basic</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="hero-left">
+      <p class="hero-eyebrow">Handmade with love &amp; yarn</p>
+      <h1 class="hero-title">
+        Crochet goods<br/>that are anything<br/>but <em>basic.</em>
+      </h1>
+      <p class="hero-sub">
+        Beautiful, handcrafted crochet pieces made with care — where cottage-garden charm meets a splash of colour.
+      </p>
+      <a href="#about" class="hero-cta">Discover the story</a>
+    </div>
+
+    <div class="hero-right">
+      <!-- Floating stitches -->
+      <span class="stitch">✿</span>
+      <span class="stitch">❋</span>
+      <span class="stitch">✦</span>
+      <span class="stitch">✿</span>
+
+      <div class="yarn-scene">
+        <div class="yarn-ball">
+          <div class="yarn-lines">
+            <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="130" cy="130" r="130" fill="none"/>
+              <!-- Yarn wrap lines -->
+              <path d="M 30 90 Q 130 60 230 90" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" fill="none"/>
+              <path d="M 20 115 Q 130 80 240 115" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
+              <path d="M 20 140 Q 130 110 240 140" stroke="rgba(255,255,255,0.18)" stroke-width="2.5" fill="none"/>
+              <path d="M 25 165 Q 130 135 235 165" stroke="rgba(255,255,255,0.22)" stroke-width="2" fill="none"/>
+              <path d="M 40 188 Q 130 158 220 188" stroke="rgba(255,255,255,0.16)" stroke-width="2" fill="none"/>
+              <!-- Diagonal wraps -->
+              <path d="M 60 20 Q 170 130 100 240" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+              <path d="M 100 18 Q 200 130 140 242" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+              <path d="M 140 18 Q 230 130 170 242" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" fill="none"/>
+              <!-- Highlight -->
+              <ellipse cx="95" cy="85" rx="30" ry="18" fill="rgba(255,255,255,0.12)" transform="rotate(-20 95 85)"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Trailing yarn -->
+        <svg style="position:absolute;bottom:20px;right:30px;width:120px;height:80px;overflow:visible;" viewBox="0 0 120 80">
+          <path d="M 10 10 C 40 0, 80 40, 60 70 S 100 90, 110 60" stroke="var(--rose)" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="10" cy="10" r="5" fill="var(--blush)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE DIVIDER -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="60">
+      <path d="M0,30 C360,70 1080,-10 1440,30 L1440,60 L0,60 Z" fill="var(--petal)"/>
+    </svg>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="reveal">
+      <p class="about-label">Our Story</p>
+      <h2 class="about-heading">More than yarn &amp; a hook — it's <em>handmade</em> heart.</h2>
+      <div class="about-body">
+        <p>Knot So Basic was born from a love of colour, texture, and the slow, satisfying rhythm of crochet. Every piece we make is crafted by hand, stitch by stitch, with genuine care poured into each one.</p>
+        <p>We believe handmade goods carry something you just can't factory-produce — a warmth, a quirk, a little piece of the maker. Our style blends the cosy charm of cottagecore with playful bursts of colour, because why choose between pretty and fun?</p>
+        <p>Whether you're treating yourself or gifting someone special, everything from Knot So Basic is made to be loved and used — not just looked at.</p>
+      </div>
+    </div>
+
+    <div class="about-visual reveal">
+      <div class="about-card">
+        <div class="card-icon pink">✦</div>
+        <div>
+          <div class="card-title">Truly Handmade</div>
+          <div class="card-desc">Every single item is crocheted by hand — no machines, no shortcuts, just yarn and dedication.</div>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="card-icon green">✿</div>
+        <div>
+          <div class="card-title">Cottagecore Meets Colour</div>
+          <div class="card-desc">Soft florals and earthy textures with a bright, joyful twist — cosy and cheerful all at once.</div>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="card-icon rose">❋</div>
+        <div>
+          <div class="card-title">Made with Intention</div>
+          <div class="card-desc">Small batches, thoughtful designs. No mass production here — just pieces we're genuinely proud of.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES STRIP -->
+  <section class="values">
+    <div class="value-item reveal">
+      <div class="value-icon v-pink">✦</div>
+      <div class="value-title">Handcrafted</div>
+      <div class="value-desc">Made by hand, always</div>
+    </div>
+    <div class="value-item reveal">
+      <div class="value-icon v-green">✿</div>
+      <div class="value-title">Made with Love</div>
+      <div class="value-desc">Every stitch counts</div>
+    </div>
+    <div class="value-item reveal">
+      <div class="value-icon v-cream">❋</div>
+      <div class="value-title">Gift-Ready</div>
+      <div class="value-desc">Perfect for someone special</div>
+    </div>
+    <div class="value-item reveal">
+      <div class="value-icon v-sage">✶</div>
+      <div class="value-title">Small Batch</div>
+      <div class="value-desc">Thoughtful, not mass-produced</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">Knot So Basic</div>
+      <div class="footer-tagline">Handmade crochet goods</div>
+    </div>
+    <div class="footer-copy">© 2024 Knot So Basic. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
